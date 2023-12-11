@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: sandbox-application
+  description: 'A placeholder description for the Sandbox Application.'
+  annotations:
+    backstage.io/commit-sha: d3adb33f0001112222333444555667788999aaaa
+    backstage.io/github-repository: 'https://github.com/example-org/sandbox-application'
+    backstage.io/job-id: "999888777"
+    backstage.io/pipeline-id: "12345678"
+    backstage.io/user-email: jane.doe@example.com
+  labels:
+    environment: development
+    team: sandbox-team
+spec:
+  type: service
+  lifecycle: development
+  owner: sandbox-team@example.com
+  system: sandbox-system
+  domain: example.com
+  subdomain: sandbox-app
+  providesApis: []
+  consumesApis: []
+  dependsOn: []
+  exposure:
+    - host: sandbox-app-dev.example.com
+      visibility: public
+    - host: sandbox-api-dev.internal.example.com
+      visibility: internal
+    - host: sandbox-app-testing.example.com
+      visibility: 'group:sandbox-developers@example.com'
+  cluster: us-central1-dev
